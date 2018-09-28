@@ -8,7 +8,7 @@ Libraries used : <br>
 - numpy `pip install numpy`
 - PIL `pip install Pillow`
 
-Input: A single color image
+Input: A single color image<br>
 Output:CMYK color composition
 
 Sample imput:<br>
