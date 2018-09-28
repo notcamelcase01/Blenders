@@ -11,7 +11,7 @@ Libraries used : <br>
 Input :  A single color image<br>
 Output : CMYK color composition
 
-Sample imput:<br>
+Sample input:<br>
 ![alt text](https://github.com/amangautam015/Blenders/blob/master/file.jpg)
 
 Output:<br>
