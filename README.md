@@ -8,8 +8,8 @@ Libraries used : <br>
 - numpy `pip install numpy`
 - PIL `pip install Pillow`
 
-Input: A single color image<br>
-Output:CMYK color composition
+Input :  A single color image<br>
+Output : CMYK color composition
 
 Sample imput:<br>
 ![alt text](https://github.com/amangautam015/Blenders/blob/master/file.jpg)
@@ -21,5 +21,5 @@ Output:<br>
 C = 73
 M = 49
 Y = 0
-B = 50
+K = 50
 ```
