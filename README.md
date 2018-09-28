@@ -3,7 +3,10 @@ Project Multicolor 3D printing
 
 ## Decoder
 Gives cymk composition of single color image <br>
-File name : [decoder.py](https://github.com/amangautam015/Blenders/blob/master/decoder.py "Decoder")
+File name : [decoder.py](https://github.com/amangautam015/Blenders/blob/master/decoder.py "Decoder")<br>
+Libraries used : <br>
+- numpy `pip install numpy`
+- PIL `pip install Pillow`
 
 Input: A single color image
 Output:CMYK color composition
