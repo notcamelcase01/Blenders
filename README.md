@@ -37,6 +37,8 @@ Fetchs gray scale intensity of image assumme image to be mono-colored for testin
 
 Takes **N** number of steps to be executed as variable and runs the stepper for **N** times
 
+---
+
 **def step_genertor**
 
 For a certain gray value we figure out how many steps should black/white motor runs say W,B <br>
