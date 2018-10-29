@@ -38,6 +38,7 @@ Fetchs gray scale intensity of image assumme image to be mono-colored for testin
 Takes **N** number of steps to be executed as variable and runs the stepper for **N** times
 
 **def step_genertor**
+
 For a certain gray value we figure out how many steps should black/white motor runs say W,B <br>
 Divide W,B as sum of `W = w 1+ w 2+ w 3 ....` and similarly for black<br>
 For  particular gray scale returns an array of which have reduced number steps in format `[[w 1,b 1],[w 2,b 2]........]` where w,b correspond to white and black .<br>
@@ -53,11 +54,13 @@ goes on .............
 ---
 
 **def pixel**
+
 Same as step_generator just cares of edge cases and gives final array of steps required to print one voxel
 
 ---
 
 **def printer**
+
 Actuates motor and start printing . Receives one array needed to print a voxel
 
 ---
