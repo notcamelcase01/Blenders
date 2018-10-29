@@ -5,6 +5,10 @@ import sys
 import time
 from scipy.interpolate import interp1d
 
+'''
+Inilization look line 126 for different color pixel
+'''
+resolution = 255
 stepPin_white = 6
 dirPin_white = 7
 stepPin2_black = 3
@@ -61,70 +65,100 @@ def motor2_black(step_local):
         black_length = black_length +1
 
 f = 1.8/180
-color_grad = 200 #gray scale intensity replace constant from get_intensity funciton
-'''
-Speed of Stepper according to color required
-'''
-mwhite = interp1d([0,255],[0,255])  #Linear plotting
-mblack = interp1d([0,255],[255,0])
+
 '''
 Resolved Step function 
 '''
-w = int(mwhite(color_grad))
-b = int(mblack(color_grad))
-print ([w,b])
-x = w/b
-y=1
-if x<1:
-    x = 1/x
-if x <= 1.2 or x >= 1.8:
-    x = round(x)
-    y=1
-elif x>1.4 and x<=1.6:
-    y=2
-    x = round(y*x)
-else:
-    y=3
-    x=round(y*x)
+
+def step_generator(w,b):
+    x = w / b
+    y = 1
+    if x < 1:
+        x = 1 / x
+    if x <= 1.2 or x >= 1.8:
+        x = round(x)
+        y = 1
+    elif x > 1.4 and x <= 1.6:
+        y = 2
+        x = round(y * x)
+    else:
+        y = 3
+        x = round(y * x)
+
+    step = []
+
+    if w < b:
+        d = int(min(w // y, b // x))
+        for i in range(0, d):
+            step.append([x, y])
+
+            w = w - y
+            b = b - x
+        step.append([w, b])
+
+    elif w == b:
+        step = [[1, 1]] * w
+
+    else:
+        d = int(min(w // x, b // y))
+        for i in range(0, d):
+            step.append([x, y])
+            w = w - x
+            b = b - y
+        step.append([w, b])
+    return step
 
 
-step = []
-
-if w<b:
-    d=int(min(w // y, b // x))
-    for i in range(0,d):
-        step.append([x,y])
-
-        w=w-y
-        b=b-x
-    step.append([w,b])
-
-elif w==b:
-    step = [[1,1]]*w
-
-else :
-    d = int(min(w // x, b // y))
-    for i in range(0, d):
-        step.append([x,y])
-        w = w - x
-        b = b - y
-    step.append([w,b])
+def pixel(color_grad):
+    w = int(mwhite(color_grad))
+    b = int(mblack(color_grad))
+    print([w, b])
+    if w != 0 and b != 0:
+        step = step_generator(w, b)
+    else:  # Handling edge cases
+        if w == 0:
+            step = [[0, resolution]]
+        else:
+            step = [[resolution, 0]]
+    return step
 
 
+def printer(step):
+    try:
+        for kk in range(0,1):
+            for i in step:
+                motor2_black(i[1])
+                motor_white(i[0])
+            time.sleep(.05)
+    except KeyboardInterrupt:
+        print("KeyInterrupt")
+        pass
 
-print ("step [white,black] : " + str(step))
-print (len(step))
+
+
+
+color_grad = [0,128,255] #gray scale intensity replace constant from get_intensity funciton
+'''
+Speed of Stepper according to color required
+'''
+mwhite = interp1d([0,255],[0,resolution])  #Linear plotting
+mblack = interp1d([0,255],[resolution,0])
+
+
+
+
 board = Arduino("COM5")
 it = util.Iterator(board)
 it.start()
-try:
-    while 1:
-        for i in step:
-            motor2_black(i[1])
-            motor_white(i[0])
-        time.sleep(.05)
-except KeyboardInterrupt:
-    print("White length excruded :" + str(f*white_length)+"mm\n"+"Black Length excruded :" +str(f*black_length)+'mm')
-    pass
+for color in color_grad:
+    step = pixel(color)
+    print("step [white,black] : " + str(step))
+    print(len(step))
+    printer(step)
+    print("White length excruded :" + str(f * white_length) + "mm\n" + "Black Length excruded :" + str(
+        f * black_length) + 'mm')
+    white_length = 0
+    black_length = 0
+
 
 print("----------------------")
