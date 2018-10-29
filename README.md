@@ -16,7 +16,7 @@ Output : Two stepper motor extruding PFA (black and white) at speeds to give the
 
 #### Variable Definations
 - resolution : how close to input gray image // high resolution increases voxel length is not good
-- min_speed :  actually mimumum time delay for nema17 stepper nothing related to speed
+- min_speed :  maximum time delay for nema17 stepper motor maximum time delay minimum speed 
 - step : array of white and black step number
 
 ## Function Definations
