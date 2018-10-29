@@ -19,7 +19,7 @@ Output : Two stepper motor extruding PFA (black and white) at speeds to give the
 - min_speed :  actually mimumum time delay for nema17 stepper nothing related to speed
 - step : array of white and black step number
 
-#### Function Definations
+## Function Definations
 
 **def create_image**
 
