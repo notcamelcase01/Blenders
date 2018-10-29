@@ -3,14 +3,14 @@ import numpy as np
 from pyfirmata import Arduino, util
 import sys
 import time
-
+from scipy.interpolate import interp1d
 
 stepPin_white = 6
 dirPin_white = 7
 stepPin2_black = 3
 dirPin2_black = 4
 
-
+min = 0.016
 '''
 Created an grayscale image of intensity 128 (0-255) for calabration of motor speed
 '''
@@ -37,12 +37,6 @@ def get_intensity():
     print(k[0][1])
     return (k[0][1])
 
-
-
-
-
-
-
 white_length = 0
 black_length = 0
 
@@ -51,32 +45,39 @@ def motor_white():
    board.digital[dirPin_white].write(1)
    for i in range(0,step_white):
        board.digital[stepPin_white].write(1)
-       time.sleep(0.015500)
+       time.sleep(min)
        board.digital[stepPin_white].write(0)
-       time.sleep(0.015500)
+       time.sleep(min)
        white_length = white_length + 1
-
-
-
-
 
 def motor2_black():
     global black_length
     board.digital[dirPin2_black].write(0)
     for i in range(0, step_black):
         board.digital[stepPin2_black].write(1)
-        time.sleep(0.015500)
+        time.sleep(min)
         board.digital[stepPin2_black].write(0)
-        time.sleep(0.015500)
+        time.sleep(min)
         black_length = black_length +1
 
 f = 1.8/180
-color_grad = get_intensity()
+color_grad = 200
 '''
 Speed of Stepper according to color required
 '''
-step_black = round(2 - (color_grad/128))
-step_white = round((2/255)*color_grad)
+
+
+
+
+sleep_white = 0.015500
+sleep_black = 0.015500
+mwhite = interp1d([0,255],[0,64])
+mblack = interp1d([0,255],[64,0])
+step_white = round(float(mwhite(color_grad)))
+step_black =  round(float(mblack(color_grad)))
+print (str(step_white)+"|"+str(step_black))
+
+
 print ("step black : " + str(step_black)+"\n"+"step white : "+str(step_white))
 board = Arduino("COM5")
 it = util.Iterator(board)
