@@ -7,19 +7,11 @@ File name : [decoder.py](https://github.com/amangautam015/Blenders/blob/master/d
 Libraries used : <br>
 - numpy `pip install numpy`
 - PIL `pip install Pillow`
+- pyfirmata `pip install pyfirmata`
 
-Input :  A single color image<br>
-Output : CMYK color composition
 
-Sample input:<br>
-![alt text](https://github.com/amangautam015/Blenders/blob/master/file.jpg)
+Input :  A single color gray image<br>
+Output : Two stepper motor extruding PFA (black and white) at speeds to give the input grayscale variation
 
-Output:<br>
-![alt text](https://github.com/amangautam015/Blenders/blob/master/Capture.JPG)
 
-```
-C = 73
-M = 59
-Y = 0
-K = 50
-```
+> Arduino Uno
