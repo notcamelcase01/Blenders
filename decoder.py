@@ -61,18 +61,12 @@ def motor2_black():
         black_length = black_length +1
 
 f = 1.8/180
-color_grad = 200
+color_grad = 200 #gray scale intensity replace constant from get_intensity funciton
 '''
 Speed of Stepper according to color required
 '''
-
-
-
-
-sleep_white = 0.015500
-sleep_black = 0.015500
-mwhite = interp1d([0,255],[0,64])
-mblack = interp1d([0,255],[64,0])
+mwhite = interp1d([0,255],[0,63])  #Linear plotting due to stepper constraints I did 0-64 we lost precesion ideally it should be 0-255
+mblack = interp1d([0,255],[63,0])
 step_white = round(float(mwhite(color_grad)))
 step_black =  round(float(mblack(color_grad)))
 print (str(step_white)+"|"+str(step_black))
