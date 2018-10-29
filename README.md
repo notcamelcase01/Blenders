@@ -8,6 +8,7 @@ Libraries used : <br>
 - numpy `pip install numpy`
 - PIL `pip install Pillow`
 - pyfirmata `pip install pyfirmata`
+- scipy `pip install scipy`
 
 
 Input :  A single color gray image<br>
