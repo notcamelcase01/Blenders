@@ -6,7 +6,7 @@ import time
 from scipy.interpolate import interp1d
 
 '''
-Inilization look line 126 for different color pixel
+Inilization look line 136 for different color pixel
 '''
 resolution = 255
 stepPin_white = 6
