@@ -29,7 +29,7 @@ Creates a test image **not required** to be runed just download image fomr this 
 
 **def get_intensity**
 
-Fetchs gray scale intensity of image assumme image to be mono-colored for testing purpose just imput required gray scale intensities in `color_grad` variable at line `136` of decoder.py
+Fetchs gray scale intensity of image assumme image to be mono-colored for testing purpose just input required gray scale intensities in `color_grad` variable at line `136` of decoder.py . `color_grad` is an array containing different voxel color informtion for one voxel just input one item in list `color_grad = [200]`
 
 ---
 
@@ -38,7 +38,7 @@ Fetchs gray scale intensity of image assumme image to be mono-colored for testin
 Takes **N** number of steps to be executed as variable and runs the stepper for **N** times
 
 **def step_genertor**
-For a ceertain gray value we figure out how many steps should black/white motor runs say W,B <br>
+For a certain gray value we figure out how many steps should black/white motor runs say W,B <br>
 Divide W,B as sum of `W = w 1+ w 2+ w 3 ....` and similarly for black<br>
 For  particular gray scale returns an array of which have reduced number steps in format `[[w 1,b 1],[w 2,b 2]........]` where w,b correspind to white and black .<br>
 ```
@@ -49,18 +49,16 @@ White runs w 2 steps
 Black runs b 2
 goes on .............
 ```
-<br>
-This is better than running every step for white or black runned in single go
 
 ---
 
 **def pixel**
-Same as step_generator just cares of edge cases and gives final array of steps required to print one voxcel
+Same as step_generator just cares of edge cases and gives final array of steps required to print one voxel
 
 ---
 
 **def printer**
-Actuates motor and start printing . Receives one array needed to print a voxcel
+Actuates motor and start printing . Receives one array needed to print a voxel
 
 ---
 
