@@ -10,7 +10,7 @@ dirPin_white = 7
 stepPin2_black = 3
 dirPin2_black = 4
 
-min = 0.016
+min_speed = 0.016
 '''
 Created an grayscale image of intensity 128 (0-255) for calabration of motor speed
 '''
@@ -40,24 +40,24 @@ def get_intensity():
 white_length = 0
 black_length = 0
 
-def motor_white():
+def motor_white(step_local):
    global white_length
    board.digital[dirPin_white].write(1)
-   for i in range(0,step_white):
+   for i in range(0,step_local):
        board.digital[stepPin_white].write(1)
-       time.sleep(min)
+       time.sleep(min_speed)
        board.digital[stepPin_white].write(0)
-       time.sleep(min)
+       time.sleep(min_speed)
        white_length = white_length + 1
 
-def motor2_black():
+def motor2_black(step_local):
     global black_length
     board.digital[dirPin2_black].write(0)
-    for i in range(0, step_black):
+    for i in range(0, step_local):
         board.digital[stepPin2_black].write(1)
-        time.sleep(min)
+        time.sleep(min_speed)
         board.digital[stepPin2_black].write(0)
-        time.sleep(min)
+        time.sleep(min_speed)
         black_length = black_length +1
 
 f = 1.8/180
@@ -65,21 +65,63 @@ color_grad = 200 #gray scale intensity replace constant from get_intensity funci
 '''
 Speed of Stepper according to color required
 '''
-mwhite = interp1d([0,255],[0,63])  #Linear plotting due to stepper constraints I did 0-64 we lost precesion ideally it should be 0-255
-mblack = interp1d([0,255],[63,0])
-step_white = round(float(mwhite(color_grad)))
-step_black =  round(float(mblack(color_grad)))
-print (str(step_white)+"|"+str(step_black))
+mwhite = interp1d([0,255],[0,255])  #Linear plotting
+mblack = interp1d([0,255],[255,0])
+'''
+Resolved Step function 
+'''
+w = int(mwhite(color_grad))
+b = int(mblack(color_grad))
+print ([w,b])
+x = w/b
+y=1
+if x<1:
+    x = 1/x
+if x <= 1.2 or x >= 1.8:
+    x = round(x)
+    y=1
+elif x>1.4 and x<=1.6:
+    y=2
+    x = round(y*x)
+else:
+    y=3
+    x=round(y*x)
 
 
-print ("step black : " + str(step_black)+"\n"+"step white : "+str(step_white))
+step = []
+
+if w<b:
+    d=int(min(w // y, b // x))
+    for i in range(0,d):
+        step.append([x,y])
+
+        w=w-y
+        b=b-x
+    step.append([w,b])
+
+elif w==b:
+    step = [[1,1]]*w
+
+else :
+    d = int(min(w // x, b // y))
+    for i in range(0, d):
+        step.append([x,y])
+        w = w - x
+        b = b - y
+    step.append([w,b])
+
+
+
+print ("step [white,black] : " + str(step))
+print (len(step))
 board = Arduino("COM5")
 it = util.Iterator(board)
 it.start()
 try:
     while 1:
-        motor2_black()
-        motor_white()
+        for i in step:
+            motor2_black(i[1])
+            motor_white(i[0])
         time.sleep(.05)
 except KeyboardInterrupt:
     print("White length excruded :" + str(f*white_length)+"mm\n"+"Black Length excruded :" +str(f*black_length)+'mm')
