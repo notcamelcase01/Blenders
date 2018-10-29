@@ -23,7 +23,7 @@ Output : Two stepper motor extruding PFA (black and white) at speeds to give the
 
 **def create_image**
 
-Creates a test image **not required** to be runed just download image fomr this [link](https://raw.githubusercontent.com/amangautam015/Blenders/master/final_result.png") and save it in same directory of python file(decoder.py)
+Creates a test image **not required** to be executed download image fomr this [link](https://raw.githubusercontent.com/amangautam015/Blenders/master/final_result.png") and save it in same directory of python file(decoder.py)
 
 ---
 
