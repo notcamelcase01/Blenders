@@ -56,7 +56,7 @@ def motor_white(step_local):
 
 def motor2_black(step_local):
     global black_length
-    board.digital[dirPin2_black].write(0)
+    board.digital[dirPin2_black].write(1)
     for i in range(0, step_local):
         board.digital[stepPin2_black].write(1)
         time.sleep(min_speed)
@@ -129,7 +129,7 @@ def printer(step):
             for i in step:
                 motor2_black(i[1])
                 motor_white(i[0])
-            time.sleep(.05)
+                time.sleep(0.2)
     except KeyboardInterrupt:
         print("KeyInterrupt")
         pass
@@ -137,7 +137,7 @@ def printer(step):
 
 
 
-color_grad = [0,128,255] #gray scale intensity replace constant from get_intensity funciton
+color_grad = [128] #gray scale intensity replace constant from get_intensity funciton
 '''
 Speed of Stepper according to color required
 '''
