@@ -76,7 +76,7 @@ Actuates motor and start printing . Receives one array needed to print a voxel
 `Blenders/venv/Scripts>activate.bat`<br>
 `Blenders/venv/Scripts>cd ..`<br>
 `Blenders>python decoder.py` 
- Run the last command while you are connected to arduino uno check port by default its `COM5` in [`decoder.py line 150`](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L150)
+ Run this command while you are connected to arduino uno check port by default its `COM5` in [`decoder.py line 150`](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L150) change it as in your System
  
  ---
 
