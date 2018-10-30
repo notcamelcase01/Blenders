@@ -6,7 +6,7 @@ import time
 from scipy.interpolate import interp1d
 
 '''
-Inilization look line 136 for different color pixel
+Inilization look line 140 for different color pixel
 '''
 resolution = 255
 stepPin_white = 6
@@ -14,7 +14,7 @@ dirPin_white = 7
 stepPin2_black = 3
 dirPin2_black = 4
 
-min_speed = 0.016
+min_speed = 0.013
 '''
 Created an grayscale image of intensity 128 (0-255) for calabration of motor speed
 '''
@@ -117,9 +117,12 @@ def pixel(color_grad):
         step = step_generator(w, b)
     else:  # Handling edge cases
         if w == 0:
-            step = [[0, resolution]]
+            step = [[0, 1]]*resolution
+            delay = 0.16
         else:
-            step = [[resolution, 0]]
+            step = [[1, 0]]*resolution
+            delay = 0.16
+
     return step
 
 
@@ -129,27 +132,25 @@ def printer(step):
             for i in step:
                 motor2_black(i[1])
                 motor_white(i[0])
-                time.sleep(0.2)
+                time.sleep(delay)
     except KeyboardInterrupt:
         print("KeyInterrupt")
         pass
+delay = 0.32
+color_grad = [255]*49 #+[128]*10+[0]*5 #gray scale intensity replace constant from get_intensity funciton
 
 
 
-
-color_grad = [128] #gray scale intensity replace constant from get_intensity funciton
 '''
 Speed of Stepper according to color required
 '''
 mwhite = interp1d([0,255],[0,resolution])  #Linear plotting
 mblack = interp1d([0,255],[resolution,0])
 
-
-
-
 board = Arduino("COM5")
 it = util.Iterator(board)
 it.start()
+voxel=1
 for color in color_grad:
     step = pixel(color)
     print("step [white,black] : " + str(step))
@@ -159,6 +160,8 @@ for color in color_grad:
         f * black_length) + 'mm')
     white_length = 0
     black_length = 0
+    print("Voxel : " + str(voxel))
+    voxel = voxel+1
 
 
 print("----------------------")
