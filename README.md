@@ -29,7 +29,12 @@ Creates a test image **not required** to be executed download image fomr this [l
 
 **def get_intensity** [:link:](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L38)
 
-Fetchs gray scale intensity of image assumme image to be mono-colored for testing purpose just input required gray scale intensities in `color_grad` variable at [`At line 140 of decoder.py`](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L140) . `color_grad` is an array containing different voxel color informtion for one voxel just input one item in list `color_grad = [200]`
+Fetchs gray scale intensity of image assumme image to be mono-colored for testing purpose just input required gray scale intensities in `color_grad` variable at [`At line 140 of decoder.py`](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L140) . `color_grad` is an array containing different voxel color informtion for one voxel just input one item in list `color_grad = [200]`<br>
+For Example <br>
+```
+color_grad = [0]*10 + [128]*5 + [200]*1 
+This will print out 10 voxel of gray intensity 0 , 5 of 128 and 1 of 200
+```
 
 ---
 
