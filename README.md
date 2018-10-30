@@ -1,4 +1,4 @@
-# Blenders
+# Blenders :rainbow:
 Project Multicolor 3D printing
 
 ## Decoder
