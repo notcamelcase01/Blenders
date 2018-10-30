@@ -29,7 +29,7 @@ Creates a test image **not required** to be executed download image fomr this [l
 
 **def get_intensity**
 
-Fetchs gray scale intensity of image assumme image to be mono-colored for testing purpose just input required gray scale intensities in `color_grad` variable at line `136` of decoder.py . `color_grad` is an array containing different voxel color informtion for one voxel just input one item in list `color_grad = [200]`
+Fetchs gray scale intensity of image assumme image to be mono-colored for testing purpose just input required gray scale intensities in `color_grad` variable at [`At line 136 of decoder.py`](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L150) . `color_grad` is an array containing different voxel color informtion for one voxel just input one item in list `color_grad = [200]`
 
 ---
 
@@ -66,5 +66,18 @@ Same as step_generator just cares of edge cases and gives final array of steps r
 Actuates motor and start printing . Receives one array needed to print a voxel
 
 ---
+
+## Run the project 
+- Install Pyhton 3.6 and pip [Check Here for installation](https://github.com/BurntSushi/nfldb/wiki/Python-&-pip-Windows-installation) 
+- [Download project](https://github.com/amangautam015/Blenders/archive/master.zip)
+- Open cmd in project directory
+`Blenders>pip install virtualenv`<br>
+`Blenders>cd venv/Scripts`<br>
+`Blenders/venv/Scripts>activate.bat`<br>
+`Blenders/venv/Scripts>cd ..`<br>
+`Blenders>python decoder.py` 
+ Run the last command while you are connected to arduino uno check port by default its `COM5` in [`decoder.py line 150`](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L150)
+ 
+ ---
 
 > Arduino Uno
