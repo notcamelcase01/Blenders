@@ -14,32 +14,32 @@ Libraries used : <br>
 Input :  A single color gray image<br>
 Output : Two stepper motor extruding PFA (black and white) at speeds to give the input grayscale variation
 
-#### Variable Definations [Jump to](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L11)
+#### Variable Definations [:link:](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L11)
 - resolution : how close to input gray image // high resolution increases voxel length is not good
 - min_speed :  maximum time delay for nema17 stepper motor maximum time delay minimum speed 
 - step : array of white and black step number
 
 ## Function Definations
 
-**def create_image** [Jump to](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L22)
+**def create_image** [:link:](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L22)
 
 Creates a test image **not required** to be executed download image fomr this [link](https://raw.githubusercontent.com/amangautam015/Blenders/master/final_result.png") and save it in same directory of python file(decoder.py)
 
 ---
 
-**def get_intensity** [Jump to](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L38)
+**def get_intensity** [:link:](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L38)
 
 Fetchs gray scale intensity of image assumme image to be mono-colored for testing purpose just input required gray scale intensities in `color_grad` variable at [`At line 136 of decoder.py`](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L136) . `color_grad` is an array containing different voxel color informtion for one voxel just input one item in list `color_grad = [200]`
 
 ---
 
-**def motor_white / def motor2_black** [Jump to](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L47)
+**def motor_white / def motor2_black** [:link:](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L47)
 
 Takes **N** number of steps to be executed as variable and runs the stepper for **N** times
 
 ---
 
-**def step_genertor** [Jump to](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L73)
+**def step_genertor** [:link:](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L73)
 
 For a certain gray value we figure out how many steps should black/white motor runs say W,B <br>
 Divide W,B as sum of `W = w 1+ w 2+ w 3 ....` and similarly for black<br>
@@ -55,13 +55,13 @@ goes on .............
 
 ---
 
-**def pixel** [Jump to](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L112)
+**def pixel** [:link:](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L112)
 
 Same as step_generator just cares of edge cases and gives final array of steps required to print one voxel
 
 ---
 
-**def printer** [Jump to](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L126)
+**def printer** [:link:](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L126)
 
 Actuates motor and start printing . Receives one array needed to print a voxel
 
