@@ -3,7 +3,7 @@ Project Multicolor 3D printing
 
 ## Decoder
 Code arduino to run stepper accordingly <br>
-File name : [decoder.py](https://github.com/amangautam015/Blenders/blob/master/decoder.py "Decoder")  [Click Here](https://github.com/amangautam015/Blenders/blob/master/decoder.py "Decoder")<br>
+File name : [decoder.py](https://github.com/amangautam015/Blenders/blob/master/decoder.py "Decoder")  [:link:](https://github.com/amangautam015/Blenders/blob/master/decoder.py "Decoder")<br>
 Libraries used : <br>
 - numpy `pip install numpy`
 - PIL `pip install Pillow`
@@ -66,7 +66,7 @@ Same as step_generator just cares of edge cases and gives final array of steps r
 
 ---
 
-**def printer** [:link:](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L126)
+**def printer** [:link:](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L129)
 
 Actuates motor and start printing . Receives one array needed to print a voxel
 
