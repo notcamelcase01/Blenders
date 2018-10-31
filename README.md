@@ -1,7 +1,7 @@
 # Blenders :rainbow:
 Project Multicolor 3D printing
 
-## Printer
+## Mixer
 Code arduino to run stepper accordingly <br>
 File name : [decoder.py](https://github.com/amangautam015/Blenders/blob/master/decoder.py "Decoder")  [:link:](https://github.com/amangautam015/Blenders/blob/master/decoder.py "Decoder")<br>
 Libraries used : <br>
