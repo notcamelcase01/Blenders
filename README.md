@@ -12,7 +12,7 @@ Libraries used : <br>
 
 
 Input :  A single color gray image<br>
-Output : Two stepper motor extruding PLA (black and white) at speeds to give the input grayscale variation
+Output : Two stepper motor extruding PLA (black and white)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; at speeds to give the input grayscale variation
 
 #### Variable Definations [:link:](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L11)
 - resolution : how close to input gray image // high resolution increases voxel length is not good
