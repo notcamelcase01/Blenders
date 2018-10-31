@@ -75,7 +75,7 @@ def step_generator(w,b):
     y = 1
     if x < 1:
         x = 1 / x
-    if x <= 1.2 or x >= 1.8:
+    if (x <= 1.2 or x >= 1.8) and (x<=2.3 or x>=2.7) and (x<=3.3 or x>=3.6):
         x = round(x)
         y = 1
     elif x > 1.4 and x <= 1.6:
@@ -136,8 +136,8 @@ def printer(step):
     except KeyboardInterrupt:
         print("KeyInterrupt")
         pass
-delay = 0.32
-color_grad = [255]*49 #+[128]*10+[0]*5 #gray scale intensity replace constant from get_intensity funciton
+delay = 0.36
+color_grad = [200]*3 #+[128]*10+[0]*5 #gray scale intensity replace constant from get_intensity funciton
 
 
 
@@ -151,6 +151,7 @@ board = Arduino("COM5")
 it = util.Iterator(board)
 it.start()
 voxel=1
+time.sleep(10)
 for color in color_grad:
     step = pixel(color)
     print("step [white,black] : " + str(step))
