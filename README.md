@@ -1,6 +1,17 @@
 # Blenders :rainbow:
 Project Multicolor 3D printing
 
+### Problem Statement
+- 3D Printed products are usually monotonous in colour
+- Inability to print object in a variety of colours in the same build
+- Enable products to closely emulate the original and make it consumer friendly
+
+### Prototype Overview
+- To provide a proof of concept of mixing of heated filaments in the extruder to achieve varying grayscale outputs
+- To show that multicolour 3d printing can be achieved at much lesser cost than that is commercially available
+
+### Control Algorithm and Code Implementation
+
 ## Mixer
 Code arduino to run stepper accordingly <br>
 File name : [decoder.py](https://github.com/amangautam015/Blenders/blob/master/decoder.py "Decoder")  [:link:](https://github.com/amangautam015/Blenders/blob/master/decoder.py "Decoder")<br>
