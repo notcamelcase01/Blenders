@@ -22,7 +22,7 @@ Libraries used : <br>
 - scipy `pip install scipy`
 
 
-Input :  A single color gray image<br>
+Input :  A single color gray image or gray intensity (0-255) <br>
 Output : Two stepper motor extruding PLA (black and white) at speeds to give the input grayscale variation
 
 #### Variable Definations [:link:](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L11)
