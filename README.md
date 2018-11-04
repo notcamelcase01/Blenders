@@ -84,7 +84,7 @@ Actuates motor and start printing . Receives one array needed to print a voxel
 ---
 
 ## Run the project  
-- Install Python 3.6 and pip [Check Here for installation](https://github.com/BurntSushi/nfldb/wiki/Python-&-pip-Windows-installation) 
+- Install Python 3.6(Python3.+ would work) and pip [Check Here for installation](https://github.com/BurntSushi/nfldb/wiki/Python-&-pip-Windows-installation) 
 - [Download project](https://github.com/amangautam015/Blenders/archive/master.zip)
 - Open cmd in project directory
 `Blenders>pip install virtualenv`<br>
