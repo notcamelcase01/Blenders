@@ -34,7 +34,7 @@ Output : Two stepper motor extruding PLA (black and white) at speeds to give the
 
 **def create_image** [:link:](https://github.com/amangautam015/Blenders/blob/41a512766da2fcb77d7b0aa4f80fc1331032ceb6/decoder.py#L22)
 
-Creates a test image **not required** to be executed download image fomr this [link](https://raw.githubusercontent.com/amangautam015/Blenders/master/final_result.png") and save it in same directory of python file(decoder.py)
+Creates a test image **not required** to be executed download image from this [link](https://raw.githubusercontent.com/amangautam015/Blenders/master/final_result.png") and save it in same directory of python file(decoder.py)
 
 ---
 
