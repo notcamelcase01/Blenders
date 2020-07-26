@@ -98,7 +98,7 @@ Actuates motor and start printing . Receives one array needed to print a voxel
 
 > Arduino Uno
 
-## Credits
+## Contributers
 - Ravindra Sagar ( BTech ME , IITB )
 - Nishant Venkatesh ( BTech ME , IITB )
 - Sujeet Singh ( BTech ME , IITB )
