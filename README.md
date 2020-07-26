@@ -99,7 +99,7 @@ Actuates motor and start printing . Receives one array needed to print a voxel
 > Arduino Uno
 
 ## Contributers
-- Ravindra Sagar ( BTech ME , IITB )
+- [Ravindra Sagar ( BTech ME , IITB )](https://github.com/ravindra-sagar)
 - Nishant Venkatesh ( BTech ME , IITB )
 - Sujeet Singh ( BTech ME , IITB )
 - Prakhar Joshi ( BTech ME , IITB )
